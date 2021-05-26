@@ -16,8 +16,8 @@ export default function Movies(props) {
     <div className="flex flex-wrap mt-4">
       <div className="w-full mb-12 px-4">
         {error && (<AlertError message={'Se produjo un error inesperado'} />)}
-        {data?.movies && (<CardMovies color="dark" results={data.movies} />)}
-        {loading && (<Loading color="dark" />)}
+        {data?.movies && (<CardMovies results={data.movies} />)}
+        {loading && (<Loading />)}
       </div>
     </div>
   )

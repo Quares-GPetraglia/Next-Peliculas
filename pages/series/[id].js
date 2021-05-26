@@ -21,10 +21,10 @@ export default function Serie(props) {
     <div className="flex flex-wrap mt-4">
       <div className="w-full mb-12 px-4">
         {error && (<AlertError message={'Se produjo un error inesperado'} />)}
-        {loading && (<Loading color="dark" />)}
-        <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-xl rounded-lg mt-16 bg-white">
-          {data?.serie && (<CardSerie color="light" serie={data.serie} />)}
-          {data?.serie && (<CardSeasons color="light" serieId={id} />)}
+        {loading && (<Loading />)}
+        <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-xl rounded-lg mt-16 bg-white dark:bg-gray-800">
+          {data?.serie && (<CardSerie serie={data.serie} />)}
+          {data?.serie && (<CardSeasons serieId={id} />)}
         </div>
       </div>
     </div>

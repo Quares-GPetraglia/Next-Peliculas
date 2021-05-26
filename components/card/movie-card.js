@@ -1,7 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-export default function CardMovie({ color, movie }) {
+export default function CardMovie({ movie }) {
     return (
         <div className="px-6">
             <div className="flex flex-wrap justify-center">
@@ -15,19 +14,19 @@ export default function CardMovie({ color, movie }) {
                 <div className="w-full px-4 text-center mt-20">
                     <div className="flex justify-center py-4 lg:pt-4 pt-8">
                         <div className="p-3 text-center">
-                            <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                            <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600 dark:text-white">
                                 {movie.year}
                             </span>
                             <span className="text-sm text-blueGray-400">Año</span>
                         </div>
                         <div className="mr-4 ml-4  p-3 text-center">
-                            <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                            <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600 dark:text-white">
                                 {movie.runningTimeInMinutes}
                             </span>
                             <span className="text-sm text-blueGray-400">Minutos</span>
                         </div>
                         <div className="p-3 text-center">
-                            <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                            <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600 dark:text-white">
                                 {'Pelicula'}
                             </span>
                             <span className="text-sm text-blueGray-400">Tipo</span>
@@ -36,7 +35,7 @@ export default function CardMovie({ color, movie }) {
                 </div>
             </div>
             <div className="text-center mt-12">
-                <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+                <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2 dark:text-white">
                     {movie.title}
                 </h3>
             </div>
@@ -44,10 +43,3 @@ export default function CardMovie({ color, movie }) {
     );
 }
 
-CardMovie.defaultProps = {
-    color: "light",
-};
-
-CardMovie.propTypes = {
-    color: PropTypes.oneOf(["light", "dark"]),
-};

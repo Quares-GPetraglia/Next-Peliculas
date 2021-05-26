@@ -10,10 +10,10 @@ export default function Header() {
 
   return (
     <>
-      <div className="relative bg-lightBlue-600 md:pt-32 pb-32 pt-12">
+      <div className="relative bg-lightBlue-600 md:pt-32 pb-32 pt-12 dark:bg-gray-600">
         <div className="px-4 md:px-10 mx-auto w-full">
           {error && (<AlertError message={'Se produjo un error inesperado'} />)}
-          {loading && (<Loading color="dark" />)}
+          {loading && (<Loading />)}
           <div>
             {data?.stats && (
               <div className="flex flex-wrap">

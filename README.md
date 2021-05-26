@@ -1,8 +1,10 @@
 # Next-Peliculas
 Aplicacion de peliculas y series con Next, GraphQL y Tailwind CSS.
 
+
 ## Requerimientos
 Es necesario tener instalado Node v14.16.1
+
 
 ## Correr proyecto
 En la carpeta del proyecto: 
@@ -13,3 +15,9 @@ En la carpeta del proyecto:
     <pre><code> npm install </code></pre>
 3) Correr el proyecto
     <pre><code> npm run dev </code></pre>
+
+
+## Activar modo oscuro
+En el archivo peliculas\tailwind.config.js modificar:
+
+    darkMode: 'media'

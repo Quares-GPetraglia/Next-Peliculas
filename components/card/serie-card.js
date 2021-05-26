@@ -1,7 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-export default function CardSerie({ color, serie }) {
+export default function CardSerie({ serie }) {
   return (
     <div className="px-6">
       <div className="flex flex-wrap justify-center">
@@ -15,19 +14,19 @@ export default function CardSerie({ color, serie }) {
         <div className="w-full px-4 text-center mt-20">
           <div className="flex justify-center py-4 lg:pt-4 pt-8">
             <div className="p-3 text-center">
-              <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+              <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600 dark:text-white">
                 {serie.year}
               </span>
               <span className="text-sm text-blueGray-400">Año</span>
             </div>
             <div className="mr-4 ml-4 p-3 text-center">
-              <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+              <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600 dark:text-white">
                 {serie.numberOfEpisodes}
               </span>
               <span className="text-sm text-blueGray-400">Episodios</span>
             </div>
             <div className="p-3 text-center">
-              <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+              <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600 dark:text-white">
                 {'Serie'}
               </span>
               <span className="text-sm text-blueGray-400">Tipo</span>
@@ -36,18 +35,10 @@ export default function CardSerie({ color, serie }) {
         </div>
       </div>
       <div className="text-center mt-12">
-        <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+        <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2 dark:text-white">
           {serie.title}
         </h3>
       </div>
     </div>
   );
 }
-
-CardSerie.defaultProps = {
-  color: "light",
-};
-
-CardSerie.propTypes = {
-  color: PropTypes.oneOf(["light", "dark"]),
-};

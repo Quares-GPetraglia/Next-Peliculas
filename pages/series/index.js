@@ -16,8 +16,8 @@ export default function Series(props) {
     <div className="flex flex-wrap mt-4">
       <div className="w-full mb-12 px-4">
         {error && (<AlertError message={'Se produjo un error inesperado'} />)}
-        {data?.series && (<CardSeries color="dark" results={data.series} />)}
-        {loading && (<Loading color="dark" />)}
+        {data?.series && (<CardSeries results={data.series} />)}
+        {loading && (<Loading />)}
       </div>
     </div>
   )

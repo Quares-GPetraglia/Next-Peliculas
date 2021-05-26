@@ -41,8 +41,8 @@ const MovieAdd = function MovieAddView(props) {
   return (
     <div className="flex flex-wrap mt-4">
       <div className="w-full mb-12 px-4">
-        <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-xl rounded-lg mt-16 bg-white" >
-          <CardMovie color="light" movie={movie} />
+        <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-xl rounded-lg mt-16 bg-white dark:bg-gray-800" >
+          <CardMovie movie={movie} />
           <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
             <div className="flex flex-wrap justify-center">
               <div className="w-full lg:w-9/12 px-4">

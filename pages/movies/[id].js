@@ -29,9 +29,9 @@ export default function Movie(props) {
     <div className="flex flex-wrap mt-4">
       <div className="w-full mb-12 px-4">
         {error && (<AlertError message={'Se produjo un error inesperado'} />)}
-        {loading && (<Loading color="dark" />)}
-        <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-xl rounded-lg mt-16 bg-white" >
-          {data?.movie && (<CardMovie color="light" movie={data.movie} />)}
+        {loading && (<Loading />)}
+        <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-xl rounded-lg mt-16 bg-white dark:bg-gray-800" >
+          {data?.movie && (<CardMovie movie={data.movie} />)}
           {data?.movie.viewed ? (
             <div className="text-center mb-12 mt-3">
               <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">

@@ -1,11 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import Loading from "../loading/loading";
 import AlertError from "../alert/error-alert";
 import Router from 'next/router';
 
-export default function CardSeasons({ color, serieId }) {
+export default function CardSeasons({ serieId }) {
   const [openTab, setOpenTab] = React.useState(1);
   const query = gql`{ serie(id: "${serieId}") { seasons{id, season, episodes{id title year episode season titleType viewed}} } }`;
   const { loading, error, data } = useQuery(query, { fetchPolicy: "no-cache" });
@@ -31,7 +30,7 @@ export default function CardSeasons({ color, serieId }) {
   return (
     <>
       { error && (<AlertError message={'Se produjo un error inesperado'} />)}
-      { loading && (<Loading color="dark" />)}
+      { loading && (<Loading />)}
       {data?.serie.seasons.length === 0 ? (
         <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
           <div className="flex flex-wrap justify-center">
@@ -45,7 +44,7 @@ export default function CardSeasons({ color, serieId }) {
       ) :
         (
           <>
-            <div className="rounded-t bg-white mb-0 px-6 py-6">
+            <div className="rounded-t bg-white dark:bg-gray-800 mb-0 px-6 py-6">
               <div className="text-center flex justify-between">
                 <h3 className="text-blueGray-700 text-xl font-bold">Temporadas</h3>
               </div>
@@ -85,7 +84,7 @@ export default function CardSeasons({ color, serieId }) {
                     {data?.serie.seasons.map(season => {
                       return (
                         <div className={openTab === season.season ? "block" : "hidden"} id={"link" + season.season} key={"link" + season.season}>
-                          <div className="rounded-t bg-white mb-0 px-6 py-6">
+                          <div className="rounded-t bg-white dark:bg-gray-800 mb-0 px-6 py-6">
                             <div className="text-center flex justify-between">
                               <h6 className="text-blueGray-700 mx-auto font-bold">{'Temporada ' + season.season}</h6>
                             </div>
@@ -93,44 +92,16 @@ export default function CardSeasons({ color, serieId }) {
                           <table className="items-center w-full bg-transparent border-collapse">
                             <thead>
                               <tr>
-                                <th
-                                  className={
-                                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
-                                    (color === "light"
-                                      ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
-                                      : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
-                                  }
-                                >
+                                <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100 dark:bg-gray-700 dark:text-white">
                                   Episodio
                                 </th>
-                                <th
-                                  className={
-                                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
-                                    (color === "light"
-                                      ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
-                                      : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
-                                  }
-                                >
+                                <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100 dark:bg-gray-700 dark:text-white">
                                   Titulo
                                 </th>
-                                <th
-                                  className={
-                                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
-                                    (color === "light"
-                                      ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
-                                      : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
-                                  }
-                                >
+                                <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100 dark:bg-gray-700 dark:text-white">
                                   Año
                                 </th>
-                                <th
-                                  className={
-                                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
-                                    (color === "light"
-                                      ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
-                                      : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
-                                  }
-                                >
+                                <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100 dark:bg-gray-700 dark:text-white">
                                   Visto
                                 </th>
                               </tr>
@@ -138,7 +109,7 @@ export default function CardSeasons({ color, serieId }) {
                             <tbody>
                               {season.episodes.map(episode => {
                                 return (
-                                  <tr key={episode.id}>
+                                  <tr key={episode.id} className="dark:text-white">
                                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                       {episode.episode}
                                     </td>
@@ -176,10 +147,3 @@ export default function CardSeasons({ color, serieId }) {
   );
 }
 
-CardSeasons.defaultProps = {
-  color: "light",
-};
-
-CardSeasons.propTypes = {
-  color: PropTypes.oneOf(["light", "dark"]),
-};

@@ -9,17 +9,17 @@ export default function Sidebar() {
 
   return (
     <>
-      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
+      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white dark:bg-gray-800 flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
         <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
           <button
-            className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
+            className="cursor-pointer text-black dark:text-white opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
             type="button"
-            onClick={() => setCollapseShow("bg-white m-2 py-3 px-6")}
+            onClick={() => setCollapseShow("bg-white dark:bg-gray-800 m-2 py-3 px-6")}
           >
             <FontAwesomeIcon icon={['fas', 'bars']} />
           </button>
           <Link href="/" className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0">
-            <span className="flex justify-center items-center"><FontAwesomeIcon icon={['fas', 'film']} size="3x" />
+            <span className="flex justify-center items-center dark:text-white"><FontAwesomeIcon icon={['fas', 'film']} size="3x" />
             </span>
           </Link>
           <div
@@ -35,7 +35,7 @@ export default function Sidebar() {
                     className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                     href="/"
                   >
-                    <span className="flex justify-center items-center"><FontAwesomeIcon icon={['fas', 'film']} size="3x" />
+                    <span className="flex justify-center items-center dark:text-white"><FontAwesomeIcon icon={['fas', 'film']} size="3x" />
                     </span>
                   </Link>
                 </div>
@@ -55,7 +55,7 @@ export default function Sidebar() {
                 <input
                   type="text"
                   placeholder="Search"
-                  className="border-0 px-3 py-2 h-12 border border-solid  border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
+                  className="border-0 px-3 py-2 h-12 border-solid  border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white dark:bg-gray-800 rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
                 />
               </div>
             </form>
