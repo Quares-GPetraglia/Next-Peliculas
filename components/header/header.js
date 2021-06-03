@@ -21,7 +21,7 @@ export default function Header() {
                   <CardStats
                     statSubtitle="PELICULAS VISTAS"
                     statTitle={data.stats.viewedMovies.toString()}
-                    statPercent={((100 / data.stats.totalMovies) * data.stats.viewedMovies).toFixed(2).toString()}
+                    statPercent={data.stats.totalMovies != 0 ? ((100 / data.stats.totalMovies) * data.stats.viewedMovies).toFixed(2).toString() : "0"}
                     statPercentColor="text-emerald-500"
                     statDescripiron={"Total " + data.stats.totalMovies + " Peliculas"}
                     statIconName="film"
@@ -32,7 +32,7 @@ export default function Header() {
                   <CardStats
                     statSubtitle="PELICULAS A VER"
                     statTitle={data.stats.moviesToView.toString()}
-                    statPercent={((100 / data.stats.totalMovies) * data.stats.moviesToView).toFixed(2).toString()}
+                    statPercent={data.stats.totalMovies != 0 ? ((100 / data.stats.totalMovies) * data.stats.moviesToView).toFixed(2).toString(): "0"}
                     statPercentColor="text-red-500"
                     statDescripiron={"Total " + data.stats.totalMovies + " Peliculas"}
                     statIconName="ticket-alt"
@@ -43,7 +43,7 @@ export default function Header() {
                   <CardStats
                     statSubtitle="EPISODIOS VISTOS"
                     statTitle={data.stats.viewedEpisodes.toString()}
-                    statPercent={((100 / data.stats.totalEpisodes) * data.stats.viewedEpisodes).toFixed(2).toString()}
+                    statPercent={data.stats.totalEpisodes != 0 ? ((100 / data.stats.totalEpisodes) * data.stats.viewedEpisodes).toFixed(2).toString(): "0"}
                     statPercentColor="text-orange-500"
                     statDescripiron={"Total " + data.stats.totalEpisodes + " Episodios"}
                     statIconName="video"
@@ -54,7 +54,7 @@ export default function Header() {
                   <CardStats
                     statSubtitle="EPISODIOS A VER"
                     statTitle={data.stats.episodesToView.toString()}
-                    statPercent={((100 / data.stats.totalEpisodes) * data.stats.episodesToView).toFixed(2).toString()}
+                    statPercent={data.stats.totalEpisodes != 0 ? ((100 / data.stats.totalEpisodes) * data.stats.episodesToView).toFixed(2).toString() : "0"}
                     statPercentColor="text-emerald-500"
                     statDescripiron={"Total " + data.stats.totalEpisodes + " Episodios"}
                     statIconName="video-slash"

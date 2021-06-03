@@ -11,7 +11,7 @@ export default function Movie(props) {
   const router = useRouter()
   const { id } = router.query
   const query = gql`{ movie(id: "${id}") { title id image year runningTimeInMinutes viewed } }`;
-  const { loading, error, data } = useQuery(query);
+  const { loading, error, data, refetch } = useQuery(query);
   const mutation = gql`mutation MovieViewedSet($movieId: ID!){setMovieViewed(movieId: $movieId){id}}`;
   const [setMovieMutation, { dataMutation }] = useMutation(mutation);
 
@@ -22,7 +22,7 @@ export default function Movie(props) {
   const setMovieViewed = (movieId) => {
     const variables = { movieId: movieId }
     setMovieMutation({ variables: variables });
-    Router.reload(window.location.pathname);
+    refetch()
   };
 
   return (

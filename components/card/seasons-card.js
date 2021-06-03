@@ -7,7 +7,7 @@ import Router from 'next/router';
 export default function CardSeasons({ serieId }) {
   const [openTab, setOpenTab] = React.useState(1);
   const query = gql`{ serie(id: "${serieId}") { seasons{id, season, episodes{id title year episode season titleType viewed}} } }`;
-  const { loading, error, data } = useQuery(query, { fetchPolicy: "no-cache" });
+  const { loading, error, data, refetch } = useQuery(query, { fetchPolicy: "no-cache" });
   const mutation = gql`mutation SeasonsAdd($idSerie: ID!, $seasons: [SeasonsInput!]!){addSeasons(idSerie: $idSerie, seasons: $seasons){id title}}`;
   const [addSeasonsMutation, { dataMutation }] = useMutation(mutation);
   const mutationEpisode = gql`mutation EpisodeViewedSet($episodeId: ID!, $seasonId: ID!){setEpisodeViewed(episodeId: $episodeId, seasonId: $seasonId){id season}}`;
@@ -18,13 +18,13 @@ export default function CardSeasons({ serieId }) {
     const json = await res.json()
     const variables = { idSerie: serieId, seasons: json }
     addSeasonsMutation({ variables: variables });
-    Router.reload(window.location.pathname);
+    refetch()
   };
 
   const setEpisodeViewed = (seasonId, episodeId) => {
     const variables = { episodeId: episodeId, seasonId: seasonId }
     setEpisodeMutation({ variables: variables });
-    Router.reload(window.location.pathname);
+    refetch()
   };
 
   return (

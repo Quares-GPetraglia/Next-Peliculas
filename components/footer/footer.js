@@ -28,7 +28,7 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href={{ pathname: `/movies` }}>
+                  <Link href={{ pathname: `/series` }}>
                     <span className="text-blueGray-600 hover:text-blueGray-800 text-sm font-semibold block py-1 px-3 dark:text-white">
                       Series
                     </span>
